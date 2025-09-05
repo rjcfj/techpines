@@ -62,7 +62,7 @@ class MusicaController extends BaseController
 
         $musica = Musica::create($input);
 
-        return $this->sendResponse(new MusicaResource($musica), 'Musica criado com sucesso!');
+        return $this->sendResponse(new MusicaResource($musica), 'Musica criada com sucesso!');
     }
 
     /**
@@ -122,7 +122,7 @@ class MusicaController extends BaseController
         $musica->thumb = $input['thumb'];
         $musica->save();
 
-        return $this->sendResponse(new MusicaResource($musica), 'Musica atualizado com sucesso!');
+        return $this->sendResponse(new MusicaResource($musica), 'Musica atualizada com sucesso!');
     }
 
     /**
@@ -162,7 +162,7 @@ class MusicaController extends BaseController
 
             $musica = Musica::create($videoInfo);
 
-            return $this->sendResponse(new MusicaResource($musica), 'Informações do vídeo do YouTube com sucesso.');
+            return $this->sendResponse(new MusicaResource($musica), 'Informações do vídeo do YouTube salvas com sucesso.');
         } catch (\Exception $e) {
             return $this->sendError('Erro ao buscar informações do vídeo do YouTube: ' . $e->getMessage());
         }

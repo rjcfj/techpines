@@ -6,17 +6,19 @@
 
 # Techpines - Backend e Frontend
 
-[![PHP](https://img.shields.io/badge/PHP-8.3-blue)](https://www.php.net/)
-[![Laravel](https://img.shields.io/badge/Laravel-12-red)](https://laravel.com/)
-[![Laravel](https://img.shields.io/badge/ReactJS-20-blue)](https://react.dev/)
-[![MySQL](https://img.shields.io/badge/MySQL-8.0-orange)](https://www.mysql.com/)
-[![Docker](https://img.shields.io/badge/Docker-20%2B-lightblue)](https://www.docker.com/)
+[![PHP](https://img.shields.io/badge/PHP-8.3-blue)](https://www.php.net/)  
+[![Laravel](https://img.shields.io/badge/Laravel-11-red)](https://laravel.com/)  
+[![ReactJS](https://img.shields.io/badge/ReactJS-19-blue)](https://react.dev/)  
+[![MySQL](https://img.shields.io/badge/MySQL-8.0-orange)](https://www.mysql.com/)  
+[![Docker](https://img.shields.io/badge/Docker-20%2B-lightblue)](https://www.docker.com/)  
+[![Backend Status](https://img.shields.io/badge/Backend-Running-green)](http://localhost:8001)  
+[![Frontend Status](https://img.shields.io/badge/Frontend-Running-green)](http://localhost:8002)
 
-**Desafio Músicas** - Desenvolvida em Backend e Frontend para gerenciamento de Músicas.
+**Desafio Músicas** - Backend e Frontend para gerenciamento de músicas.
 
 ---
 
-## Ambiente
+## 🌐 Ambiente
 
 | Componente | Versão |
 | ---------- | ------ |
@@ -29,7 +31,7 @@
 
 ---
 
-## Setup do Projeto
+## ⚡ Setup do Projeto
 
 ### 1. Clonar o repositório
 
@@ -46,19 +48,12 @@ docker compose up -d --build
 
 > Sobe serviços PHP, MySQL e Node em background.
 
-### 3. Acessar servidor
+### 3. Acessar servidores
 
-Backend
+- **Backend:** `http://localhost:8001`
+- **Frontend:** `http://localhost:8002`
 
-```
-http://localhost:8001
-```
-
-Frontend
-
-```
-http://localhost:8002
-```
+> As portas podem variar conforme configuração do Docker Compose.
 
 ---
 
@@ -129,87 +124,27 @@ Authorization: Bearer <token>
 
 | Método | Endpoint            | Auth | Descrição               |
 | ------ | ------------------- | ---- | ----------------------- |
-| GET    | `/api/musica/top-5` | Sim  | Lista musicas por top 5 |
+| GET    | `/api/musica/top-5` | Sim  | Lista músicas por top 5 |
 
-**Response Exemplo:**
-
-```json
-[
-  {
-    "id": 3,
-    "titulo": "Rio de Lágrimas",
-    "visualizacoes": "153.0K",
-    "youtube_id": "FxXXvPL3JIg",
-    "thumb": "https://img.youtube.com/vi/FxXXvPL3JIg/hqdefault.jpg",
-    "created_at": "03/09/2025",
-    "updated_at": "03/09/2025"
-  }
-]
-```
+---
 
 ### 4. Listar Música por código
 
 | Método | Endpoint              | Auth | Descrição               |
 | ------ | --------------------- | ---- | ----------------------- |
-| GET    | `/api/musica/:codigo` | Sim  | Lista musica por código |
+| GET    | `/api/musica/:codigo` | Sim  | Lista música por código |
 
 **Parâmetros:**
 
 - `:codigo` → código da música
 
-**Response Exemplo:**
-
-```json
-[
-  {
-    "id": 3,
-    "titulo": "Rio de Lágrimas",
-    "visualizacoes": "153.0K",
-    "youtube_id": "FxXXvPL3JIg",
-    "thumb": "https://img.youtube.com/vi/FxXXvPL3JIg/hqdefault.jpg",
-    "created_at": "03/09/2025",
-    "updated_at": "03/09/2025"
-  }
-]
-```
+---
 
 ### 5. Salvar Música
 
-| Método | Endpoint       | Auth | Descrição                   |
-| ------ | -------------- | ---- | --------------------------- |
-| POST   | `/api/musica/` | Sim  | Salva os dados de um música |
-
-**Request Body:**
-
-```json
-{
-  {
-	"titulo": "Xavier Rudd - Stoney Creek",
-	"visualizacoes": "342000000",
-	"youtube_id": "o6kDnY1L-2s",
-	"thumb": "https://img.youtube.com/vi/o6kDnY1L-2s/hqdefault.jpg"
-}
-}
-```
-
-**Response Exemplo:**
-
-```json
-{
-  "success": true,
-  "message": "Música criado com sucesso."
-}
-```
-
-### 6. Atualizar Música
-
-| Método | Endpoint              | Auth | Descrição                      |
-| ------ | --------------------- | ---- | ------------------------------ |
-| PUT    | `/api/musica/:codigo` | Sim  | Atualiza os dados de um música |
-
-**Parâmetros:**
-
-- `:codigo` → código da usuário
+| Método | Endpoint       | Auth | Descrição                    |
+| ------ | -------------- | ---- | ---------------------------- |
+| POST   | `/api/musica/` | Sim  | Salva os dados de uma música |
 
 **Request Body:**
 
@@ -227,76 +162,65 @@ Authorization: Bearer <token>
 ```json
 {
   "success": true,
-  "message": "Música atualizado com sucesso."
+  "message": "Música criada com sucesso."
 }
 ```
 
-### 7. Excluir Música
+---
 
-| Método | Endpoint              | Auth | Descrição                      |
-| ------ | --------------------- | ---- | ------------------------------ |
-| DELETE | `/api/musica/:codigo` | Sim  | Atualiza os dados de um música |
+### 6. Atualizar Música
 
-**Parâmetros:**
+| Método | Endpoint              | Auth | Descrição                       |
+| ------ | --------------------- | ---- | ------------------------------- |
+| PUT    | `/api/musica/:codigo` | Sim  | Atualiza os dados de uma música |
 
-- `:codigo` → código da música
+**Request Body:** _(objeto JSON)_
+
+```json
+{
+  "titulo": "Xavier Rudd - Stoney Creek",
+  "visualizacoes": "342000000",
+  "youtube_id": "o6kDnY1L-2s",
+  "thumb": "https://img.youtube.com/vi/o6kDnY1L-2s/hqdefault.jpg"
+}
+```
 
 **Response Exemplo:**
 
 ```json
 {
   "success": true,
-  "message": "Música excluído com sucesso."
+  "message": "Música atualizada com sucesso."
 }
-```
-
-### 8. Listar Usuário
-
-| Método | Endpoint       | Auth | Descrição                          |
-| ------ | -------------- | ---- | ---------------------------------- |
-| GET    | `/api/usuario` | Sim  | Lista todas as usuário disponíveis |
-
-**Response Exemplo:**
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Admin TechPines",
-    "email": "admin@techpines.com",
-    "created_at": "03/09/2025",
-    "updated_at": "03/09/2025"
-  }
-]
 ```
 
 ---
 
-### 4. Listar Usuário por código
+### 7. Excluir Música
+
+| Método | Endpoint              | Auth | Descrição         |
+| ------ | --------------------- | ---- | ----------------- |
+| DELETE | `/api/musica/:codigo` | Sim  | Exclui uma música |
+
+---
+
+### 8. Listar Usuário
+
+| Método | Endpoint       | Auth | Descrição                           |
+| ------ | -------------- | ---- | ----------------------------------- |
+| GET    | `/api/usuario` | Sim  | Lista todos os usuários disponíveis |
+
+---
+
+### 9. Listar Usuário por código
 
 | Método | Endpoint               | Auth | Descrição                |
 | ------ | ---------------------- | ---- | ------------------------ |
 | GET    | `/api/usuario/:codigo` | Sim  | Lista usuário por código |
 
-**Parâmetros:**
+---
 
-- `:codigo` → código da usuário
-
-**Response Exemplo:**
-
-```json
-[
-  {
-    "id": 1,
-    "name": "Admin TechPines",
-    "email": "admin@techpines.com",
-    "created_at": "03/09/2025",
-    "updated_at": "03/09/2025"
-  }
-]
-```
-
-### 9. Salvar Usuário
+### 10. Salvar Usuário
 
 | Método | Endpoint        | Auth | Descrição                    |
 | ------ | --------------- | ---- | ---------------------------- |
@@ -305,14 +229,12 @@ Authorization: Bearer <token>
 **Request Body:**
 
 ```json
-[
-  {
-    "name": "Ricardo Junior",
-    "email": "ricardojcfj@gmail.com",
-    "password": "admin123",
-    "confirm_password": "admin123"
-  }
-]
+{
+  "name": "Ricardo Junior",
+  "email": "ricardojcfj@gmail.com",
+  "password": "admin123",
+  "confirm_password": "admin123"
+}
 ```
 
 **Response Exemplo:**
@@ -324,27 +246,23 @@ Authorization: Bearer <token>
 }
 ```
 
-### 10. Atualizar Usuário
+---
 
-| Método | Endpoint               | Auth | Descrição                       |
-| ------ | ---------------------- | ---- | ------------------------------- |
-| PUT    | `/api/usuario/:codigo` | Sim  | Atualiza os dados de um usuário |
+### 11. Atualizar Usuário
 
-**Parâmetros:**
+| Método | Endpoint               | Auth | Descrição           |
+| ------ | ---------------------- | ---- | ------------------- |
+| PUT    | `/api/usuario/:codigo` | Sim  | Atualiza um usuário |
 
-- `:codigo` → código da usuário
-
-**Request Body:**
+**Request Body:** _(objeto JSON)_
 
 ```json
-[
-  {
-    "name": "Ricardo Junior",
-    "email": "ricardojcfj@gmail.com",
-    "password": "admin123",
-    "confirm_password": "admin123"
-  }
-]
+{
+  "name": "Ricardo Junior",
+  "email": "ricardojcfj@gmail.com",
+  "password": "admin123",
+  "confirm_password": "admin123"
+}
 ```
 
 **Response Exemplo:**
@@ -356,39 +274,28 @@ Authorization: Bearer <token>
 }
 ```
 
-### 11. Excluir Usuário
+---
 
-| Método | Endpoint               | Auth | Descrição                       |
-| ------ | ---------------------- | ---- | ------------------------------- |
-| DELETE | `/api/usuario/:codigo` | Sim  | Atualiza os dados de um usuário |
+### 12. Excluir Usuário
 
-**Parâmetros:**
+| Método | Endpoint               | Auth | Descrição         |
+| ------ | ---------------------- | ---- | ----------------- |
+| DELETE | `/api/usuario/:codigo` | Sim  | Exclui um usuário |
 
-- `:codigo` → código da usuário
+---
 
-**Response Exemplo:**
+### 13. Salvar Sugerir (extrair vídeo do YouTube)
 
-```json
-{
-  "success": true,
-  "message": "Usuário excluído com sucesso."
-}
-```
-
-### 12. Salvar Sugerir
-
-| Método | Endpoint                 | Auth | Descrição                    |
-| ------ | ------------------------ | ---- | ---------------------------- |
-| POST   | `/api/extrair-vídeo-id/` | Sim  | Salva os dados de um sugerir |
+| Método | Endpoint                 | Auth | Descrição               |
+| ------ | ------------------------ | ---- | ----------------------- |
+| POST   | `/api/extrair-video-id/` | Sim  | Salva sugestão de vídeo |
 
 **Request Body:**
 
 ```json
-[
-  {
-    "youtube_url": "https://www.youtube.com/watch?v=0k61x-mHORw"
-  }
-]
+{
+  "youtube_url": "https://www.youtube.com/watch?v=0k61x-mHORw"
+}
 ```
 
 **Response Exemplo:**
@@ -396,16 +303,17 @@ Authorization: Bearer <token>
 ```json
 {
   "success": true,
-  "message": "Informações do vídeo do YouTube com sucesso."
+  "message": "Informações do vídeo do YouTube salvas com sucesso."
 }
 ```
 
 ---
 
-## 📝 Dicas e Boas Práticas
+## 📝 Boas Práticas
 
-- Utilize Postman ou Insomnia para testar a API rapidamente.
+- Utilize **Postman** ou **Insomnia** para testar a API rapidamente.
 - Certifique-se de usar o token JWT nos endpoints protegidos.
+- Padronize os formatos JSON (objetos) em requests de POST/PUT para consistência.
 
 ---
 

@@ -48,7 +48,7 @@ class UserController extends BaseController
 
         $user = User::create($input);
 
-        return $this->sendResponse(new UserResource($user), 'Usuário criado com sucesso.');
+        return $this->sendResponse(new UserResource($user), 'Usuário criada com sucesso.');
     }
 
     /**
@@ -97,7 +97,7 @@ class UserController extends BaseController
 
         $user = User::findOrFail($id);
 
-        return $this->sendResponse(new UserResource($user), 'Usuário atualizado com sucesso!');
+        return $this->sendResponse(new UserResource($user), 'Usuário atualizada com sucesso!');
     }
 
     /**
