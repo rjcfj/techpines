@@ -9,5 +9,12 @@ if [ ! -f /var/www/html/.env ]; then
     php /var/www/html/artisan key:generate
 fi
 
+# Roda migrate e seed
+php artisan migrate --force
+php artisan db:seed --force
+
+# Finalmente roda o servidor
+php artisan serve --host=0.0.0.0 --port=8000
+
 # Executa o comando original do CMD
 exec "$@"
